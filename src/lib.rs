@@ -54,7 +54,12 @@ pub mod locale {
     pub const JA_JP: &str = "ja_JP";
 }
 
-pub mod apis;
 pub mod models;
+
+#[cfg(feature = "client")]
+pub mod apis;
+
+#[cfg(feature = "client")]
 pub mod client;
+#[cfg(feature = "client")]
 pub mod client_apis;

@@ -1,6 +1,6 @@
 [package]
 name = "amazon-spapi"
-version = "2.0.1"
+version = "2.0.2"
 edition = "2021"
 description = "A Rust client library for Amazon Selling Partner API (SP-API)"
 license = "MIT"
@@ -15,31 +15,44 @@ exclude = ["examples/test.rs", "tests/*", ".github/*", "*.log"]
 [lib]
 crate-type = ["lib"]
 
+[features]
+default = ["client"]
+client = [
+    "serde_repr",
+    "anyhow",
+    "toml",
+    "time",
+    "url",
+    "log",
+    "tokio",
+    "reqwest",
+]
+
 [dependencies]
-reqwest = { version = "0.12", default-features = false, features = [
-    "json",
-    "rustls-tls",
-] }
 serde = { version = "1.0", features = ["derive"] }
-serde_json = "1.0"
-serde_repr = "0.1"
 serde_with = { version = "3.0", default-features = false, features = [
     "base64",
     "std",
     "macros",
 ] }
+serde_json = "1.0"
+serde_repr = { version = "0.1", optional = true }
+anyhow = { version = "1.0", optional = true }
+toml = { version = "0.9", optional = true }
+time = { version = "0.3", optional = true }
+url = { version = "2.5", optional = true }
+log = { version = "0.4", optional = true }
+reqwest = { version = "0.12", default-features = false, features = [
+    "json",
+    "rustls-tls",
+], optional = true }
 tokio = { version = "1.0", features = [
     "rt-multi-thread",
     "macros",
     "time",
     "net",
     "sync",
-] }
-anyhow = "1.0"
-toml = "0.9"
-time = "0.3"
-url = "2.5"
-log = "0.4"
+], optional = true }
 
 [dev-dependencies]
 clap = { version = "4.5.41", features = ["derive"] }

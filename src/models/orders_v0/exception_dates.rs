@@ -9,6 +9,7 @@
  */
 
 use crate::models;
+use crate::models::string_bool::StringBool;
 use serde::{Deserialize, Serialize};
 
 /// ExceptionDates : Dates when the business is closed or open with a different time window.
@@ -19,7 +20,7 @@ pub struct ExceptionDates {
     pub exception_date: Option<String>,
     /// Boolean indicating if the business is closed or open on that date.
     #[serde(rename = "IsOpen", skip_serializing_if = "Option::is_none")]
-    pub is_open: Option<bool>,
+    pub is_open: Option<StringBool>,
     /// Time window during the day when the business is open.
     #[serde(rename = "OpenIntervals", skip_serializing_if = "Option::is_none")]
     pub open_intervals: Option<Vec<models::orders_v0::OpenInterval>>,

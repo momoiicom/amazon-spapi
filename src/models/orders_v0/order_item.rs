@@ -9,6 +9,7 @@
  */
 
 use crate::models;
+use crate::models::string_bool::StringBool;
 use serde::{Deserialize, Serialize};
 
 /// OrderItem : A single order item.
@@ -87,10 +88,10 @@ pub struct OrderItem {
     pub tax_collection: Option<Box<models::orders_v0::TaxCollection>>,
     /// When true, the product type for this item has a serial number.   Only returned for Amazon Easy Ship orders.
     #[serde(rename = "SerialNumberRequired", skip_serializing_if = "Option::is_none")]
-    pub serial_number_required: Option<bool>,
+    pub serial_number_required: Option<StringBool>,
     /// When true, the ASIN is enrolled in Transparency. The Transparency serial number that you must submit is determined by:  **1D or 2D Barcode:** This has a **T** logo. Submit either the 29-character alpha-numeric identifier beginning with **AZ** or **ZA**, or the 38-character Serialized Global Trade Item Number (SGTIN). **2D Barcode SN:** Submit the 7- to 20-character serial number barcode, which likely has the prefix **SN**. The serial number is applied to the same side of the packaging as the GTIN (UPC/EAN/ISBN) barcode. **QR code SN:** Submit the URL that the QR code generates.
     #[serde(rename = "IsTransparency", skip_serializing_if = "Option::is_none")]
-    pub is_transparency: Option<bool>,
+    pub is_transparency: Option<StringBool>,
     /// The IOSS number of the marketplace. Sellers shipping to the EU from outside the EU must provide this IOSS number to their carrier when Amazon has collected the VAT on the sale.
     #[serde(rename = "IossNumber", skip_serializing_if = "Option::is_none")]
     pub ioss_number: Option<String>,

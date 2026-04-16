@@ -9,6 +9,7 @@
  */
 
 use crate::models;
+use crate::models::string_bool::StringBool;
 use serde::{Deserialize, Serialize};
 
 /// Order : Order information.
@@ -86,34 +87,34 @@ pub struct Order {
     pub latest_delivery_date: Option<String>,
     /// When true, the order is an Amazon Business order. An Amazon Business order is an order where the buyer is a Verified Business Buyer.
     #[serde(rename = "IsBusinessOrder", skip_serializing_if = "Option::is_none")]
-    pub is_business_order: Option<bool>,
+    pub is_business_order: Option<StringBool>,
     /// When true, the order is a seller-fulfilled Amazon Prime order.
     #[serde(rename = "IsPrime", skip_serializing_if = "Option::is_none")]
-    pub is_prime: Option<bool>,
+    pub is_prime: Option<StringBool>,
     /// When true, the order has a Premium Shipping Service Level Agreement. For more information about Premium Shipping orders, refer to \"Premium Shipping Options\" in the Seller Central Help for your marketplace.
     #[serde(rename = "IsPremiumOrder", skip_serializing_if = "Option::is_none")]
-    pub is_premium_order: Option<bool>,
+    pub is_premium_order: Option<StringBool>,
     /// When true, the order is a `GlobalExpress` order.
     #[serde(rename = "IsGlobalExpressEnabled", skip_serializing_if = "Option::is_none")]
-    pub is_global_express_enabled: Option<bool>,
+    pub is_global_express_enabled: Option<StringBool>,
     /// The order ID value for the order that is being replaced. Returned only if IsReplacementOrder = true.
     #[serde(rename = "ReplacedOrderId", skip_serializing_if = "Option::is_none")]
     pub replaced_order_id: Option<String>,
     /// When true, this is a replacement order.
     #[serde(rename = "IsReplacementOrder", skip_serializing_if = "Option::is_none")]
-    pub is_replacement_order: Option<bool>,
+    pub is_replacement_order: Option<StringBool>,
     /// Indicates the date by which the seller must respond to the buyer with an estimated ship date. Only returned for Sourcing on Demand orders.
     #[serde(rename = "PromiseResponseDueDate", skip_serializing_if = "Option::is_none")]
     pub promise_response_due_date: Option<String>,
     /// When true, the estimated ship date is set for the order. Only returned for Sourcing on Demand orders.
     #[serde(rename = "IsEstimatedShipDateSet", skip_serializing_if = "Option::is_none")]
-    pub is_estimated_ship_date_set: Option<bool>,
+    pub is_estimated_ship_date_set: Option<StringBool>,
     /// When true, the item within this order was bought and re-sold by Amazon Business EU SARL (ABEU). By buying and instantly re-selling your items, ABEU becomes the seller of record, making your inventory available for sale to customers who would not otherwise purchase from a third-party seller.
     #[serde(rename = "IsSoldByAB", skip_serializing_if = "Option::is_none")]
-    pub is_sold_by_ab: Option<bool>,
+    pub is_sold_by_ab: Option<StringBool>,
     /// When true, the item within this order was bought and re-sold by Amazon Business EU SARL (ABEU). By buying and instantly re-selling your items, ABEU becomes the seller of record, making your inventory available for sale to customers who would not otherwise purchase from a third-party seller.
     #[serde(rename = "IsIBA", skip_serializing_if = "Option::is_none")]
-    pub is_iba: Option<bool>,
+    pub is_iba: Option<StringBool>,
     #[serde(rename = "DefaultShipFromLocationAddress", skip_serializing_if = "Option::is_none")]
     pub default_ship_from_location_address: Option<Box<models::orders_v0::Address>>,
     /// The buyer's invoicing preference. Sellers can use this data to issue electronic invoices for orders in Turkey.  **Note**: This attribute is only available in the Turkey marketplace.
@@ -125,10 +126,10 @@ pub struct Order {
     pub fulfillment_instruction: Option<Box<models::orders_v0::FulfillmentInstruction>>,
     /// When true, this order is marked to be picked up from a store rather than delivered.
     #[serde(rename = "IsISPU", skip_serializing_if = "Option::is_none")]
-    pub is_ispu: Option<bool>,
+    pub is_ispu: Option<StringBool>,
     /// When true, this order is marked to be delivered to an Access Point. The access location is chosen by the customer. Access Points include Amazon Hub Lockers, Amazon Hub Counters, and pickup points operated by carriers.
     #[serde(rename = "IsAccessPointOrder", skip_serializing_if = "Option::is_none")]
-    pub is_access_point_order: Option<bool>,
+    pub is_access_point_order: Option<StringBool>,
     #[serde(rename = "MarketplaceTaxInfo", skip_serializing_if = "Option::is_none")]
     pub marketplace_tax_info: Option<Box<models::orders_v0::MarketplaceTaxInfo>>,
     /// The seller’s friendly name registered in the marketplace where the sale took place. Sellers can use this data to issue electronic invoices for orders in Brazil.  **Note**: This attribute is only available in the Brazil marketplace for the orders with `Pending` or `Unshipped` status.
@@ -142,7 +143,7 @@ pub struct Order {
     pub automated_shipping_settings: Option<Box<models::orders_v0::AutomatedShippingSettings>>,
     /// Whether the order contains regulated items which may require additional approval steps before being fulfilled.
     #[serde(rename = "HasRegulatedItems", skip_serializing_if = "Option::is_none")]
-    pub has_regulated_items: Option<bool>,
+    pub has_regulated_items: Option<StringBool>,
     #[serde(rename = "ElectronicInvoiceStatus", skip_serializing_if = "Option::is_none")]
     pub electronic_invoice_status: Option<models::orders_v0::ElectronicInvoiceStatus>,
 }

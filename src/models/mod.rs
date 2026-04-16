@@ -1,3 +1,4 @@
+pub mod string_bool;
 pub mod shipping_v2;
 pub mod shipping;
 pub mod vendor_direct_fulfillment_sandbox_data_2021_10_28;

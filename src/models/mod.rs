@@ -1,3 +1,4 @@
+pub mod string_number;
 pub mod string_bool;
 pub mod shipping_v2;
 pub mod shipping;

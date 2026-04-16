@@ -23,7 +23,7 @@ pub struct OrderItem {
     pub seller_sku: Option<String>,
     /// An Amazon-defined order item identifier.
     #[serde(rename = "OrderItemId")]
-    pub order_item_id: String,
+    pub order_item_id: StringBool,
     /// A list of associated items that a customer has purchased with a product. For example, a tire installation service purchased with tires.
     #[serde(rename = "AssociatedItems", skip_serializing_if = "Option::is_none")]
     pub associated_items: Option<Vec<models::orders_v0::AssociatedItem>>,
@@ -120,7 +120,7 @@ pub struct OrderItem {
 
 impl OrderItem {
     /// A single order item.
-    pub fn new(asin: String, order_item_id: String, quantity_ordered: i32) -> OrderItem {
+    pub fn new(asin: String, order_item_id: StringBool, quantity_ordered: i32) -> OrderItem {
         OrderItem {
             asin,
             seller_sku: None,

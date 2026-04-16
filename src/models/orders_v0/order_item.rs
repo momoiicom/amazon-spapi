@@ -65,7 +65,7 @@ pub struct OrderItem {
     pub cod_fee_discount: Option<Box<models::orders_v0::Money>>,
     /// Indicates whether the item is a gift.  **Possible values**: `true` and `false`.
     #[serde(rename = "IsGift", skip_serializing_if = "Option::is_none")]
-    pub is_gift: Option<String>,
+    pub is_gift: Option<StringBool>,
     /// The condition of the item, as described by the seller.
     #[serde(rename = "ConditionNote", skip_serializing_if = "Option::is_none")]
     pub condition_note: Option<String>,

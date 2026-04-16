@@ -15,8 +15,8 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct Address {
     /// The name.
-    #[serde(rename = "Name")]
-    pub name: String,
+    #[serde(rename = "Name", default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
     /// The company name of the recipient.  **Note**: This attribute is only available for shipping address.
     #[serde(rename = "CompanyName", skip_serializing_if = "Option::is_none")]
     pub company_name: Option<String>,
@@ -62,7 +62,7 @@ pub struct Address {
 
 impl Address {
     /// The shipping address for the order.
-    pub fn new(name: String) -> Address {
+    pub fn new(name: Option<String>) -> Address {
         Address {
             name,
             company_name: None,

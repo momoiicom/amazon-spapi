@@ -87,7 +87,7 @@ impl SpapiConfig {
             timeout_sec: Some(30),
             rate_limit_factor: None,
             proxy: None,
-            retry_count: None,
+            retry_count: Some(3),
         })
     }
 

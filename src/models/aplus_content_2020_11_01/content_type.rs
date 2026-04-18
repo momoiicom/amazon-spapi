@@ -19,7 +19,8 @@ pub enum ContentType {
     Ebc,
     #[serde(rename = "EMC")]
     Emc,
-
+    #[serde(rename = "BrandStory")]
+    BrandStory,
 }
 
 impl std::fmt::Display for ContentType {
@@ -27,6 +28,7 @@ impl std::fmt::Display for ContentType {
         match self {
             Self::Ebc => write!(f, "EBC"),
             Self::Emc => write!(f, "EMC"),
+            Self::BrandStory => write!(f, "BrandStory"),
         }
     }
 }
